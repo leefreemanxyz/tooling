@@ -1,0 +1,47 @@
+name: Renovate
+description: "A Github action that can be used to run Renovate on a repository"
+
+inputs:
+  repositories:
+    description: "Comma separated list of repositories to renovate"
+    required: false
+    default: ${{ github.repository }}
+  version:
+    description: "Overide the version of renovate to use (e.g. 37.214.0)"
+    required: false
+  onboarding:
+    description: "Whether to create an onboarding PR for new repositories (recommended)"
+    required: false
+    default: "true"
+  dry-run:
+    description: "One of 'extract', 'lookup' or 'full' to enable dry-run debugging mode"
+    required: false
+  log-level:
+    description: "One of 'debug', 'info', 'warn', 'error' or 'fatal'"
+    required: false
+    default: "info"
+  gh-token:
+    required: true
+    description:
+      "A GitHub Personal Access Token with the scopes repo, workflow, read:packages, read:org &
+      write:discussion"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+
+    - name: Self-hosted Renovate
+      uses: renovatebot/github-action@f24426972367551f3391720e34317783a92fd32b # v41.0.8
+      env:
+        RENOVATE_REPOSITORIES: ${{ inputs.repositories }}
+        RENOVATE_ONBOARDING: ${{ inputs.onboarding }}
+        RENOVATE_PLATFORM_COMMIT: "false"
+        RENOVATE_DRY_RUN: ${{ inputs.dry-run }}
+        LOG_LEVEL: ${{ inputs.log-level }}
+        GITHUB_COM_TOKEN: ${{ inputs.gh-token }}
+      with:
+        token: ${{ inputs.gh-token }}
+        renovate-version: ${{ inputs.version }}
+        configurationFile: ./renovate/renovate-bot-config.js
