@@ -23,5 +23,5 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - uses: ./.github/actions/renovate
         with:
-          repositories: "leefreemanxyz/florida,leefreemanxyz/personal-site,leefreemanxyz/tooling"
+          repositories: "leefreemanxyz/florida,leefreemanxyz/personal-site,leefreemanxyz/tooling,leefreemanxyz/react-swipeable-list"
           gh-token: ${{ secrets.GH_TOKEN }}
