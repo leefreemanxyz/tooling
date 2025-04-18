@@ -1,7 +1,7 @@
 name: Renovate
 on:
   schedule:
-    - cron: "0/10 * * * *" 
+    - cron: "0 */8 * * *" 
 
   workflow_dispatch: # allows you to run manually whenever you want
   push:
