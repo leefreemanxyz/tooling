@@ -33,7 +33,7 @@ runs:
       uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
 
     - name: Self-hosted Renovate
-      uses: renovatebot/github-action@822441559e94f98b67b82d97ab89fe3003b0a247 # v44.2.0
+      uses: renovatebot/github-action@98c8f1b0835e163b9fdfc7c86dff40dadc7162ee # v45.0.3
       env:
         RENOVATE_REPOSITORIES: ${{ inputs.repositories }}
         RENOVATE_ONBOARDING: ${{ inputs.onboarding }}
