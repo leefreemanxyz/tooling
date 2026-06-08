@@ -23,5 +23,5 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
       - uses: ./.github/actions/renovate
         with:
-          repositories: "leefreemanxyz/florida,leefreemanxyz/personal-site,leefreemanxyz/tooling,leefreemanxyz/openapi-cli,leefreemanxyz/fitness,leefreemanxyz/stickie"
+          repositories: "leefreemanxyz/florida,leefreemanxyz/personal-site,leefreemanxyz/tooling,leefreemanxyz/openapi-cli,leefreemanxyz/fitness,leefreemanxyz/stickie,leefreemanxyz/music-practice"
           gh-token: ${{ secrets.GH_TOKEN }}
